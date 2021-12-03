@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AccordTests" parallel="tests">
+    <test name="tests.TestsChrome" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.SearchTests">
+                <methods>
+                    <include name="checkThatUrlContainsSearchWord"/>
+                    <include name="checkElementsAmountOnSearchPage"/>
+                    <include name="checkThatCheckBoxResultsContainsSearchBrand"/>
+                    <include name="checkCorrectEmail"/>
+                </methods>
+            </class>
+            <class name="tests.CartTests">
+                <methods>
+                    <include name="checkAddToCart"/>
+                    <include name="checkRemoveToCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="tests.TestsFirefox" parallel="methods" thread-count="3">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.SearchTests">
+                <methods>
+                    <include name="checkThatUrlContainsSearchWord"/>
+                    <include name="checkElementsAmountOnSearchPage"/>
+                    <include name="checkThatCheckBoxResultsContainsSearchBrand"/>
+                    <include name="checkCorrectEmail"/>
+                </methods>
+            </class>
+            <class name="tests.CartTests">
+                <methods>
+                    <include name="checkAddToCart"/>
+                    <include name="checkRemoveToCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
